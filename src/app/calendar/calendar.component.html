@@ -1,0 +1,19 @@
+<table>
+  <tr class="month-row">
+    <td colspan="7">
+      <div class="month-header">{{months}}</div>
+    </td>
+  </tr>
+  <tr class="day-row">
+    <th *ngFor="let name of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{name}}</th>
+  </tr>
+  <tr *ngFor="let week of [0, 1, 2, 3, 4]">
+    <td class="calendar-cell"
+      [ngClass]="getDayClass(week * 7 + day)"
+      *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
+      <div class="calendar-number">
+        {{getDay(week * 7 + day)}}
+      </div>
+    </td>
+  </tr>
+</table>
